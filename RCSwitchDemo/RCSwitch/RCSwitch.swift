@@ -10,7 +10,7 @@ import UIKit
 
 let rcSwitchFontSize: CGFloat = 12
 
-class RCSwitch: UIControl, CAAnimationDelegate {
+public class RCSwitch: UIControl, CAAnimationDelegate {
 
     // the text showing when isOn == true
     var onText: String = "" {

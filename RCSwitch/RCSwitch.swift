@@ -10,7 +10,7 @@ import UIKit
 
 let rcSwitchFontSize: CGFloat = 12
 
-class RCSwitch: UIControl, CAAnimationDelegate {
+public class RCSwitch: UIControl, CAAnimationDelegate {
 
     // the text showing when isOn == true
     var onText: String = "" {
@@ -104,7 +104,7 @@ class RCSwitch: UIControl, CAAnimationDelegate {
         }
     }
 
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         let height: CGFloat = self.frame.height
         let width: CGFloat = self.frame.width
@@ -239,7 +239,7 @@ class RCSwitch: UIControl, CAAnimationDelegate {
         return animation
     }
 
-    func animationDidStart(_ anim: CAAnimation) {
+    public func animationDidStart(_ anim: CAAnimation) {
         if self.isOn {
             thumbLayer.path = UIBezierPath(arcCenter: rightArcCenter, radius: thumbRadius, startAngle: 0, endAngle: CGFloat(M_PI*2), clockwise: true).cgPath
             onLayer.path = fullPath
@@ -252,12 +252,12 @@ class RCSwitch: UIControl, CAAnimationDelegate {
         }
     }
 
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         self.isUserInteractionEnabled = true
     }
 
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 

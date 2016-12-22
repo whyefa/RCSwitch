@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         aSwitch = RCSwitch(frame: CGRect(x: 100, y: 100, width: 60, height: 25))
         aSwitch.onText = "Abc"
-//        aSwitch.offText = "xyz"
+        aSwitch.offText = "xyz"
         self.view.addSubview(aSwitch)
 
 

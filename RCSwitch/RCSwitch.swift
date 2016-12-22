@@ -13,32 +13,34 @@ let rcSwitchFontSize: CGFloat = 12
 public class RCSwitch: UIControl, CAAnimationDelegate {
 
     // the text showing when isOn == true
-    var onText: String = "" {
+    public var onText: String = "" {
         didSet {
             setNeedsLayout()
         }
     }
 
     // the text showing when isOn == false, default show ...
-    var offText: String = "" {
+    public var offText: String = "" {
         didSet {
             setNeedsLayout()
         }
     }
 
     //  shadowLayer show on superview  or not, default is false
-    var isShadowShowing: Bool = false
+    public var isShadowShowing: Bool = false
 
     //  onText background color
-    var onColor: UIColor =  UIColor(red:243/255.0, green: 68/255.0, blue:107/255.0, alpha: 1) {
+    public var onColor: UIColor =  UIColor(red:243/255.0, green: 68/255.0, blue:107/255.0, alpha: 1) {
         didSet {
+            onLayer.fillColor = onColor.cgColor
             setNeedsLayout()
         }
     }
 
     //  offText background color
-    var offColor: UIColor = UIColor.white {
+    public var offColor: UIColor = UIColor.white {
         didSet {
+            offLayer.fillColor = offColor.cgColor
             setNeedsLayout()
         }
     }
@@ -73,7 +75,7 @@ public class RCSwitch: UIControl, CAAnimationDelegate {
     // right thumb center when isOn == false
     private var rightArcCenter: CGPoint!
 
-    var isOn: Bool = false {
+    public var isOn: Bool = false {
         didSet {
             self.isUserInteractionEnabled = false
             let leftPath = UIBezierPath(arcCenter: leftArcCenter, radius: thumbRadius, startAngle: 0, endAngle: CGFloat(M_PI*2), clockwise: true).cgPath
@@ -145,7 +147,7 @@ public class RCSwitch: UIControl, CAAnimationDelegate {
     }
 
     // MARK: - init
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         var rect = frame
         rect.size.width = min(frame.width, maxLength)
         super.init(frame: rect)
